@@ -121,18 +121,27 @@ class LinkedList:
             temp.next = before #this flips the arrow (refer to illustration)
             before = temp #then we move before over to the next node
             temp = after #then we can move temp over to the next node as well and continue the process
-           
-            
+       
+    def find_middle_node(self):
+        slow = self.head
+        fast = self.head
+        while fast is not None and slow is not None:
+            slow = slow.next
+            fast = fast.next.next
+        return slow.value
+
 
 ll = LinkedList(0)
 ll.append(1)
 ll.append(2)
-ll.append(5)
-print("list before reversal: ")
-ll.print_list()
-print("list after reversal: ")
-ll.reverse()
-ll.print_list()
+ll.append(3)
+print(ll.find_middle_node())
+
+# print("list before reversal: ")
+# ll.print_list()
+# print("list after reversal: ")
+# ll.reverse()
+# ll.print_list()
 
 # print("Before prepending")
 # ll.print_list()
