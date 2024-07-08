@@ -117,7 +117,7 @@ class LinkedList:
         after = temp.next
         before = None
         for _ in range(self.length): #order of the bottom steps has to be exact 
-            after = temp.next #this moves us one over to set things up for the arrow switiching
+            after = temp.next #this moves us one over to set things up for the arrow switching
             temp.next = before #this flips the arrow (refer to illustration)
             before = temp #then we move before over to the next node
             temp = after #then we can move temp over to the next node as well and continue the process
@@ -129,13 +129,30 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
         return slow.value
-
+    
+def find_kth_from_end(ll, k):
+    # counter = 0
+    if k > ll.length or k < 0:
+        return None
+    # slow = ll.head
+    # fast = ll.head.next
+    # while fast is not None and counter <= k:
+    #     fast = fast.next 
+    #     slow = slow.next
+    #     counter += 1
+    # return slow
+    ll.reverse()
+    var = ll.head
+    for _ in range(k):
+        var = var.next
+    return var.value
 
 ll = LinkedList(0)
 ll.append(1)
 ll.append(2)
 ll.append(3)
-print(ll.find_middle_node())
+ll.reverse()
+ll.print_list()
 
 # print("list before reversal: ")
 # ll.print_list()
